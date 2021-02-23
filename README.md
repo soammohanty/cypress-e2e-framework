@@ -48,7 +48,7 @@ To run entire suite on chrome browser
 npm run e2e-tests
 ```
 To run on otherbrowser create/change the script in package.json 
---<browser-name>
+--browser-name
 
 ## License
 MIT
