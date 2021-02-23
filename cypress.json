@@ -1,0 +1,14 @@
+{
+  "integrationFolder": "cypress/tests",
+  "defaultCommandTimeout": 10000,
+  "reporter": "mochawesome",
+  "viewportWidth": 1366,
+  "viewportHeight": 1000,
+  "env": {
+    "MY_ENV_VARIABLE": "hello"
+  },
+  "screenshotsFolder": "./cypress/snapshots/actual",
+  "trashAssetsBeforeRuns": true
+}
+
+

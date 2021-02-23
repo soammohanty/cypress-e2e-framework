@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-02-23T09:59:05.090Z",
+    "end": "2021-02-23T09:59:10.104Z",
+    "duration": 5014,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "500e03e0-a6c6-45ee-98b2-8a610d064ed7",
+      "title": "",
+      "fullFile": "cypress/tests/basic_visualRegression.spec.js",
+      "file": "cypress/tests/basic_visualRegression.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "39af6703-8887-4e42-8e22-a38452c3bc9c",
+          "title": "Visuals",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should compare screenshot from a given element",
+              "fullTitle": "Visuals should compare screenshot from a given element",
+              "timedOut": null,
+              "duration": 3138,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('www.google.com'); //cy.wait(30000)\ncy.get('body img').compareSnapshot('google imgagaaaaa'); //cy.compareSnapshot('google imgagaaaaa', 0.0);",
+              "err": {},
+              "uuid": "997ab149-b2f1-47c1-8c1b-fb05461129ee",
+              "parentUUID": "39af6703-8887-4e42-8e22-a38452c3bc9c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "997ab149-b2f1-47c1-8c1b-fb05461129ee"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3138,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

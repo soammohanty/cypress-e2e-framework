@@ -1,0 +1,435 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-02-23T09:58:40.675Z",
+    "end": "2021-02-23T10:04:14.261Z",
+    "duration": 41137,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d409c20f-b6d4-4cb3-bc20-decc784f3eeb",
+      "title": "",
+      "fullFile": "cypress/tests/basic_test.spec.js",
+      "file": "cypress/tests/basic_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "877084cf-4c35-4c64-9db6-7950c8cdd3c5",
+          "title": "Basic e2e cypress test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checkout all the smartphones",
+              "fullTitle": "Basic e2e cypress test checkout all the smartphones",
+              "timedOut": null,
+              "duration": 12062,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Enter Name\nhomePage.getNameInputField().type(name); //Enter Gender\nhomePage.getGenderField().select(gender); //Assert the value in the 2nd input field\nhomePage.getTwoWayDataBindingField().should('have.value', name); //Assert the min-length of the input\nhomePage.getNameInputField().should('have.attr', 'minlength', '2'); //Assert one radio button is disabled\nhomePage.getRadioButton().should('have.attr', 'disabled');\nhomePage.getRadioButton().should('be.disabled'); //Click on Shop\nhomePage.getShopTab().click(); //Get the cost of blackberry and add to cart\nshopPage.getProductNames().each(function ($el, index, $list) {\n  if ($el.text().includes('Blackberry')) {\n    shopPage.getProductNames().eq(index).next().then(function ($cost) {\n      cy.log($cost.text());\n    });\n    shopPage.getAddToCart().eq(index).click();\n  }\n}); //Add to cart using custom command\ncy.selectSmartPhone('Nokia Edge'); //Add to cart using fixture data array\nsmartphoneNames.forEach(function (productName) {\n  cy.selectSmartPhone(productName);\n}); // Go to checkout page\nshopPage.getCheckoutButton().click();\nvar totalCost = 0;\nshopPage.getCosts().each(function ($cost) {\n  totalCost += parseInt($cost.text().match(/\\d+/));\n}); //Assert the total cost\nshopPage.getTotalCost().invoke('text').then(function ($sum) {\n  expect(parseInt($sum.match(/\\d+/))).to.equal(totalCost);\n}); //Checkout\nshopPage.getFinalCheckoutButton().click(); //Enter country \nshopPage.getLocationField().type(country);\nshopPage.getLocationSuggestion().click(); //Check the terms checkbox and purchase\nshopPage.getTermsCheckbox().click({\n  force: true\n});\nshopPage.getPurchaseButton().click(); //Assert the sucess page\nshopPage.getSuccessMessage().invoke('text').should('contain', ' Thank you! Your order will be delivered in next few weeks :-)');",
+              "err": {},
+              "uuid": "8efead50-6b8c-4bcd-b748-b275b048aa1c",
+              "parentUUID": "877084cf-4c35-4c64-9db6-7950c8cdd3c5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8efead50-6b8c-4bcd-b748-b275b048aa1c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12062,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "500e03e0-a6c6-45ee-98b2-8a610d064ed7",
+      "title": "",
+      "fullFile": "cypress/tests/basic_visualRegression.spec.js",
+      "file": "cypress/tests/basic_visualRegression.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "39af6703-8887-4e42-8e22-a38452c3bc9c",
+          "title": "Visuals",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should compare screenshot from a given element",
+              "fullTitle": "Visuals should compare screenshot from a given element",
+              "timedOut": null,
+              "duration": 3138,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('www.google.com'); //cy.wait(30000)\ncy.get('body img').compareSnapshot('google imgagaaaaa'); //cy.compareSnapshot('google imgagaaaaa', 0.0);",
+              "err": {},
+              "uuid": "997ab149-b2f1-47c1-8c1b-fb05461129ee",
+              "parentUUID": "39af6703-8887-4e42-8e22-a38452c3bc9c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "997ab149-b2f1-47c1-8c1b-fb05461129ee"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3138,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "9284a99a-755e-4e39-ad1e-6a2e90a53dee",
+      "title": "",
+      "fullFile": "cypress/tests/basic_test.spec.js",
+      "file": "cypress/tests/basic_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1aa16367-2a32-4bc9-b0cf-a31d165ce679",
+          "title": "Basic e2e cypress test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checkout all the smartphones",
+              "fullTitle": "Basic e2e cypress test checkout all the smartphones",
+              "timedOut": null,
+              "duration": 10623,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Enter Name\nhomePage.getNameInputField().type(name); //Enter Gender\nhomePage.getGenderField().select(gender); //Assert the value in the 2nd input field\nhomePage.getTwoWayDataBindingField().should('have.value', name); //Assert the min-length of the input\nhomePage.getNameInputField().should('have.attr', 'minlength', '2'); //Assert one radio button is disabled\nhomePage.getRadioButton().should('have.attr', 'disabled');\nhomePage.getRadioButton().should('be.disabled'); //Click on Shop\nhomePage.getShopTab().click(); //Get the cost of blackberry and add to cart\nshopPage.getProductNames().each(function ($el, index, $list) {\n  if ($el.text().includes('Blackberry')) {\n    shopPage.getProductNames().eq(index).next().then(function ($cost) {\n      cy.log($cost.text());\n    });\n    shopPage.getAddToCart().eq(index).click();\n  }\n}); //Add to cart using custom command\ncy.selectSmartPhone('Nokia Edge'); //Add to cart using fixture data array\nsmartphoneNames.forEach(function (productName) {\n  cy.selectSmartPhone(productName);\n}); // Go to checkout page\nshopPage.getCheckoutButton().click();\nvar totalCost = 0;\nshopPage.getCosts().each(function ($cost) {\n  totalCost += parseInt($cost.text().match(/\\d+/));\n}); //Assert the total cost\nshopPage.getTotalCost().invoke('text').then(function ($sum) {\n  expect(parseInt($sum.match(/\\d+/))).to.equal(totalCost);\n}); //Checkout\nshopPage.getFinalCheckoutButton().click(); //Enter country \nshopPage.getLocationField().type(country);\nshopPage.getLocationSuggestion().click(); //Check the terms checkbox and purchase\nshopPage.getTermsCheckbox().click({\n  force: true\n});\nshopPage.getPurchaseButton().click(); //Assert the sucess page\nshopPage.getSuccessMessage().invoke('text').should('contain', ' Thank you! Your order will be delivered in next few weeks :-)');",
+              "err": {},
+              "uuid": "b23f798b-9e66-4cb8-87e4-cae4f33dbdc5",
+              "parentUUID": "1aa16367-2a32-4bc9-b0cf-a31d165ce679",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b23f798b-9e66-4cb8-87e4-cae4f33dbdc5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10623,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "2cb2a75e-1a03-4750-8dde-f8f0ac7d0266",
+      "title": "",
+      "fullFile": "cypress/tests/basic_visualRegression.spec.js",
+      "file": "cypress/tests/basic_visualRegression.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93bfcc1c-cac4-43b8-a251-c0121d708fed",
+          "title": "Visuals",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should compare screenshot from a given element",
+              "fullTitle": "Visuals should compare screenshot from a given element",
+              "timedOut": null,
+              "duration": 2143,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('www.google.com'); //cy.wait(30000)\ncy.get('body img').compareSnapshot('google imgagaaaaa'); //cy.compareSnapshot('google imgagaaaaa', 0.0);",
+              "err": {},
+              "uuid": "7a277238-6aa3-43b4-9eb7-0d60f0fa54a5",
+              "parentUUID": "93bfcc1c-cac4-43b8-a251-c0121d708fed",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7a277238-6aa3-43b4-9eb7-0d60f0fa54a5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2143,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "bc25a5bb-af61-41aa-880f-274cff7b84eb",
+      "title": "",
+      "fullFile": "cypress/tests/cypress_actions.spec.js",
+      "file": "cypress/tests/cypress_actions.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90e08e2b-1444-4e80-b493-904f17f968bd",
+          "title": "Various actions being performed on DOM elements in Cypress,",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "type into the field, like sendKeys in selenium",
+              "fullTitle": "Various actions being performed on DOM elements in Cypress, type into the field, like sendKeys in selenium",
+              "timedOut": null,
+              "duration": 5793,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/type\nactionPage.getEmailField().type('fake@email.com') // .type() with special character sequences\n.type('{leftarrow}{rightarrow}{uparrow}{downarrow}').type('{del}{selectall}{backspace}') // .type() with key modifiers\n.type('{alt}{option}') //these are equivalent\n.type('{ctrl}{control}') //these are equivalent\n.type('{meta}{command}{cmd}') //these are equivalent\n.type('{shift}') // Delay each keypress by 0.1 sec\n.type('slow.typing@email.com', {\n  delay: 100\n}).should('have.value', 'slow.typing@email.com');\nactionPage.getDisabledField() // Ignore error checking prior to type\n// like whether the input is visible or disabled\n.type('disabled error checking', {\n  force: true\n}).should('have.value', 'disabled error checking');",
+              "err": {},
+              "uuid": "72c7fadb-eab2-42d7-bab0-608e0ec7c639",
+              "parentUUID": "90e08e2b-1444-4e80-b493-904f17f968bd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "72c7fadb-eab2-42d7-bab0-608e0ec7c639"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5793,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "f5a9e43a-0a59-4c4e-9e32-16404455d3e4",
+      "title": "",
+      "fullFile": "cypress/tests/cypress_request.spec.js",
+      "file": "cypress/tests/cypress_request.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "447bbd52-e654-4081-a28e-b1f9fb44f95d",
+          "title": "Handling HTTP requests in Cypress",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "make an XHR request",
+              "fullTitle": "Handling HTTP requests in Cypress make an XHR request",
+              "timedOut": null,
+              "duration": 3774,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://jsonplaceholder.cypress.io/comments').should(function (response) {\n  expect(response.status).to.eq(200); // the server sometimes gets an extra comment posted from another machine\n  // which gets returned as 1 extra object\n  expect(response.body).to.have.property('length').and.be.oneOf([500, 501]);\n  expect(response).to.have.property('headers');\n  expect(response).to.have.property('duration');\n});",
+              "err": {},
+              "uuid": "216cfc99-2e4e-4b4c-ab44-87fd39909bba",
+              "parentUUID": "447bbd52-e654-4081-a28e-b1f9fb44f95d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify response using BDD syntax",
+              "fullTitle": "Handling HTTP requests in Cypress verify response using BDD syntax",
+              "timedOut": null,
+              "duration": 2417,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('https://jsonplaceholder.cypress.io/comments').then(function (response) {\n  // https://on.cypress.io/assertions\n  expect(response).property('status').to.equal(200);\n  expect(response).property('body').to.have.property('length').and.be.oneOf([500, 501]);\n  expect(response).to.include.keys('headers', 'duration');\n});",
+              "err": {},
+              "uuid": "a277f488-6d4a-4f3d-95b2-fefe01da3067",
+              "parentUUID": "447bbd52-e654-4081-a28e-b1f9fb44f95d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.request() with query parameters",
+              "fullTitle": "Handling HTTP requests in Cypress cy.request() with query parameters",
+              "timedOut": null,
+              "duration": 1187,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// will execute request\n// https://jsonplaceholder.cypress.io/comments?postId=1&id=3\ncy.request({\n  url: 'https://jsonplaceholder.cypress.io/comments',\n  qs: {\n    postId: 1,\n    id: 3\n  }\n}).its('body').should('be.an', 'array').and('have.length', 1).its('0') // yields first element of the array\n.should('contain', {\n  postId: 1,\n  id: 3\n});",
+              "err": {},
+              "uuid": "656b69db-481e-4fb3-a1dc-27fa14201afa",
+              "parentUUID": "447bbd52-e654-4081-a28e-b1f9fb44f95d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "216cfc99-2e4e-4b4c-ab44-87fd39909bba",
+            "a277f488-6d4a-4f3d-95b2-fefe01da3067",
+            "656b69db-481e-4fb3-a1dc-27fa14201afa"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7378,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

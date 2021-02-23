@@ -1,0 +1,20 @@
+{
+  "name": "cypressframework",
+  "version": "1.0.0",
+  "description": "Cypress Page-Object Model Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cypress run",
+    "headedTest": "./node_modules/.bin/cypress run -- --headed",
+    "chrome-tests": "npm run test  --spec cypress/tests/*  -- --browser chrome  -- --reporter mochawesome",
+    "e2e-tests-base": "npm run chrome-tests -- --env type=base -- --config screenshotsFolder=cypress/snapshots/base",
+    "e2e-tests": "npm run chrome-tests -- --env type=actual"
+  },
+  "author": "Soam",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^6.5.0",
+    "mochawesome": "^6.2.2",
+    "cypress-visual-regression": "^1.5.7"
+  }
+}

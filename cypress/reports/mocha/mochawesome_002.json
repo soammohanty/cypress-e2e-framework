@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-02-23T10:03:07.550Z",
+    "end": "2021-02-23T10:03:20.085Z",
+    "duration": 12535,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9284a99a-755e-4e39-ad1e-6a2e90a53dee",
+      "title": "",
+      "fullFile": "cypress/tests/basic_test.spec.js",
+      "file": "cypress/tests/basic_test.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1aa16367-2a32-4bc9-b0cf-a31d165ce679",
+          "title": "Basic e2e cypress test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "checkout all the smartphones",
+              "fullTitle": "Basic e2e cypress test checkout all the smartphones",
+              "timedOut": null,
+              "duration": 10623,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//Enter Name\nhomePage.getNameInputField().type(name); //Enter Gender\nhomePage.getGenderField().select(gender); //Assert the value in the 2nd input field\nhomePage.getTwoWayDataBindingField().should('have.value', name); //Assert the min-length of the input\nhomePage.getNameInputField().should('have.attr', 'minlength', '2'); //Assert one radio button is disabled\nhomePage.getRadioButton().should('have.attr', 'disabled');\nhomePage.getRadioButton().should('be.disabled'); //Click on Shop\nhomePage.getShopTab().click(); //Get the cost of blackberry and add to cart\nshopPage.getProductNames().each(function ($el, index, $list) {\n  if ($el.text().includes('Blackberry')) {\n    shopPage.getProductNames().eq(index).next().then(function ($cost) {\n      cy.log($cost.text());\n    });\n    shopPage.getAddToCart().eq(index).click();\n  }\n}); //Add to cart using custom command\ncy.selectSmartPhone('Nokia Edge'); //Add to cart using fixture data array\nsmartphoneNames.forEach(function (productName) {\n  cy.selectSmartPhone(productName);\n}); // Go to checkout page\nshopPage.getCheckoutButton().click();\nvar totalCost = 0;\nshopPage.getCosts().each(function ($cost) {\n  totalCost += parseInt($cost.text().match(/\\d+/));\n}); //Assert the total cost\nshopPage.getTotalCost().invoke('text').then(function ($sum) {\n  expect(parseInt($sum.match(/\\d+/))).to.equal(totalCost);\n}); //Checkout\nshopPage.getFinalCheckoutButton().click(); //Enter country \nshopPage.getLocationField().type(country);\nshopPage.getLocationSuggestion().click(); //Check the terms checkbox and purchase\nshopPage.getTermsCheckbox().click({\n  force: true\n});\nshopPage.getPurchaseButton().click(); //Assert the sucess page\nshopPage.getSuccessMessage().invoke('text').should('contain', ' Thank you! Your order will be delivered in next few weeks :-)');",
+              "err": {},
+              "uuid": "b23f798b-9e66-4cb8-87e4-cae4f33dbdc5",
+              "parentUUID": "1aa16367-2a32-4bc9-b0cf-a31d165ce679",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b23f798b-9e66-4cb8-87e4-cae4f33dbdc5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10623,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
